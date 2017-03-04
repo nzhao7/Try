@@ -1,0 +1,24 @@
+---
+title: "Untitled"
+author: "Ning Zhao"
+date: "March 4, 2017"
+output: pdf_document
+---
+
+```{r}
+library(quantmod)
+aapl <- getSymbols("AAPL", auto.assign = F)
+aapl <- data.frame(aapl)
+# returns for 10 years
+aapl_rtn_l <- diff(log(aapl$AAPL.Adjusted))
+# returns for 1 month
+aapl_rtn_s <- aapl_rtn_l[1:30]
+# standardization
+aapl_rtn_l_norm <- (aapl_rtn_l-mean(aapl_rtn_l))/sd(aapl_rtn_l)
+aapl_rtn_s_norm <- (aapl_rtn_s-mean(aapl_rtn_s))/sd(aapl_rtn_s)
+# plot probability density function for standardized long-term returns and standard normal distribution
+plot(dnorm,-4,4,ylim=c(0,0.6),col="red",cex=2,type="o",main="AAPL Standardized PDF for 10-Year Returns")
+lines(density(aapl_rtn_l_norm),xlim=c(-4,4),col="blue")
+```
+
+
