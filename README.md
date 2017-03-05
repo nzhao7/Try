@@ -1,3 +1,2 @@
 # Try
-![Image text][github-Capture.jpg](/graph/Capture.JPG "github-Capture.jpg")
-(/images/01.jpg "github-01.jpg")
+![alt tag](https://github.com/nzhao7/Try/blob/master/graph/Capture.JPG)
